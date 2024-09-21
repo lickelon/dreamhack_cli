@@ -5,7 +5,7 @@ from commands.help import help
 
 if __name__ == '__main__':
     if sys.argv[1] == 'config':
-        pass
+        config()
     if sys.argv[1] == 'create':
         create()
     if sys.argv[1] == 'help' or len(sys.argv) == 1:

@@ -4,7 +4,6 @@ import sys
 
 def create():
     user = User()
-    user.get_info()
     user.login()
     if len(sys.argv) != 3:
         print("Usage : dh create <wargame_link|wargame_id>")

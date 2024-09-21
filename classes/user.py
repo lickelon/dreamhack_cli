@@ -6,12 +6,14 @@ class User:
         self.url = "https://dreamhack.io/api/v1/auth/login/"
         self.session = requests.Session()
     def get_info(self):
+        #TODO : user_info.json이 없으면 직접 입력 or config 안내 메세지 출력
         with open("user_info.json", "r") as file:
             data = json.load(file)
         self.email = data['email']
         self.password = data['password']
         pass
     def login(self):
+        self.get_info()
         #print("Login on Dreamhack...")
         payload = {
             "email": self.email,
@@ -24,7 +26,7 @@ class User:
 
         response = self.session.post(self.url, json=payload, headers=headers)
         if response.status_code == 200:
-            #print("Login Success!")
+            print("Login Success!")
             return True
         else:
             print(f"Login Failed! ERROR: {response.status_code}")
